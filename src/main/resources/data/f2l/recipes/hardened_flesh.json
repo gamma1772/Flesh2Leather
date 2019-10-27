@@ -1,0 +1,27 @@
+{
+  "conditions": [
+    {
+      "type": "f2l:items",
+      "object": "hard_cfg"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:rotten_flesh"
+    },
+    {
+      "item": "minecraft:rotten_flesh"
+    },
+    {
+      "item": "minecraft:rotten_flesh"
+    },
+    {
+      "item": "minecraft:rotten_flesh"
+    }
+  ],
+  "result": {
+    "item": "f2l:hardened_flesh",
+    "count": 1
+  }
+}
