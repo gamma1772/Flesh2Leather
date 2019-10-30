@@ -1,12 +1,12 @@
 modLoader="javafml" #mandatory
 loaderVersion="[28,)" #mandatory (28 is current forge version)
-issueTrackerURL="http://my.issue.tracker/" #optional
+issueTrackerURL="https://github.com/CodenameRevy/Flesh2Leather/issues" #optional
 [[mods]] #mandatory
 modId="f2l" #mandatory
 version="0.2.1" #mandatory
 displayName="Flesh 2 Leather" #mandatory
-updateJSONURL="http://myurl.me/" #optional
-displayURL="http://example.com/" #optional
+#updateJSONURL="http://myurl.me/" #optional
+displayURL="https://github.com/CodenameRevy/Flesh2Leather" #optional
 logoFile="logo.png" #optional
 credits="CodenameRevy" #optional
 authors="CodenameRevy" #optional
