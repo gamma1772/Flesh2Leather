@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.IForgeRegistry;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RegistryHandler
@@ -12,6 +13,12 @@ public class RegistryHandler
     @SubscribeEvent
     public static void onItemRegistry(final RegistryEvent.Register<Item> event)
     {
-        ItemInit.ItemRegistry(event.getRegistry());
+        ItemRegistry(event.getRegistry());
+    }
+
+    public static void ItemRegistry(IForgeRegistry<Item> registry)
+    {
+        registry.register(ItemInit.COMBINED_FLESH);
+        registry.register(ItemInit.HARDENED_FLESH);
     }
 }

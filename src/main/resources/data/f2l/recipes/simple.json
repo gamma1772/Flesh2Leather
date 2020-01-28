@@ -1,0 +1,22 @@
+{
+  "conditions": [
+    {
+      "type": "f2l:items",
+      "object": "simple_cfg"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "F F",
+    " F ",
+    "F F"
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:rotten_flesh"
+    }
+  },
+  "result": {
+    "item": "f2l:combined_flesh"
+  }
+}

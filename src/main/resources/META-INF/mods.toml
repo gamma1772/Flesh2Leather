@@ -1,9 +1,9 @@
 modLoader="javafml" #mandatory
-loaderVersion="[30,)" #mandatory (30 is current forge version for 1.15.1)
+loaderVersion="[31,)" #mandatory (31 is current forge version for 1.15.2)
 issueTrackerURL="https://github.com/CodenameRevy/Flesh2Leather/issues" #optional
 [[mods]] #mandatory
 modId="f2l" #mandatory
-version="0.2.2" #mandatory
+version="${file.jarVersion}" #mandatory
 displayName="Flesh 2 Leather" #mandatory
 #updateJSONURL="http://myurl.me/" #optional
 displayURL="https://github.com/CodenameRevy/Flesh2Leather" #optional
@@ -12,17 +12,11 @@ credits="CodenameRevy" #optional
 authors="CodenameRevy" #optional
 description='''
 This Mod adds a new Item called "Combined Flesh" that can be smoked into Leather!
-
-Changelog 0.2.2:
-
--Compiled with Forge 30.0.15, mappings from December 21st, 2019;
--Changed Forge dependency from 28 to 30.
--
 '''
 [[dependencies.examplemod]] #optional
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[30,)" #mandatory
+    versionRange="[31,)" #mandatory
     ordering="NONE"
     side="BOTH"
 [[dependencies.examplemod]]

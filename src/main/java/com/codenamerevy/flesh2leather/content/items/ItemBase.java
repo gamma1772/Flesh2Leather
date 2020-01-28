@@ -1,4 +1,4 @@
-package com.codenamerevy.flesh2leather.items;
+package com.codenamerevy.flesh2leather.content.items;
 
 import net.minecraft.item.Item;
 

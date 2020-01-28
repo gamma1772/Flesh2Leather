@@ -1,6 +1,6 @@
 package com.codenamerevy.flesh2leather.util.handler;
 
-import com.codenamerevy.flesh2leather.items.ItemConditions;
+import com.codenamerevy.flesh2leather.content.items.ItemConditions;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.event.RegistryEvent;

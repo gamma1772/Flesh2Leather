@@ -1,0 +1,20 @@
+{
+  "conditions": [
+    {
+      "type": "f2l:items",
+      "object": "ez_cfg"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "F"
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:rotten_flesh"
+    }
+  },
+  "result": {
+    "item": "minecraft:leather"
+  }
+}
