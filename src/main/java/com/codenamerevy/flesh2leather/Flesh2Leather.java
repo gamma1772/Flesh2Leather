@@ -1,33 +1,29 @@
 package com.codenamerevy.flesh2leather;
 
-import com.codenamerevy.flesh2leather.config.Config;
-import com.codenamerevy.flesh2leather.util.Ref;
-import com.codenamerevy.flesh2leather.util.handler.EventHandler;
-import com.codenamerevy.flesh2leather.util.handler.RegistryHandler;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
-@Mod(Ref.MODID)
+@Mod("flesh2leather")
 public class Flesh2Leather
 {
+    private static final String MODID = "flesh2leather";
+
+    private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    private static final RegistryObject<Item> COMBINED_FLESH = ITEMS.register("combined_flesh", () -> new Item(new Item.Properties().group(ItemGroup.MATERIALS)));
+
     public Flesh2Leather()
     {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
+        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        MinecraftForge.EVENT_BUS.addListener(Config::onLoad);
-        MinecraftForge.EVENT_BUS.addListener(Config::onFileChange);
-
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
+        ITEMS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
-    }
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
-        MinecraftForge.EVENT_BUS.register(new RegistryHandler());
-        MinecraftForge.EVENT_BUS.register(new EventHandler());
     }
 }
