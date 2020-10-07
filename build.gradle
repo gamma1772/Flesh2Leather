@@ -13,14 +13,14 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'idea'
 apply plugin: 'maven-publish'
 
-version = '0.3.1'
-group = 'com.codenamerevy.f2l'
-archivesBaseName = 'f2l'
+version = '1.0.2'
+group = 'com.codenamerevy.flesh2leather'
+archivesBaseName = 'flesh2leather'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
 minecraft {
-    mappings channel: 'snapshot', version: '20200412-1.15.1'
+    mappings channel: 'snapshot', version: '20201007-1.15.1'
     runs {
         client {
             workingDirectory project.file('run')
@@ -75,7 +75,7 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.15.2-31.1.43'
+    minecraft 'net.minecraftforge:forge:1.15.2-31.2.45'
 
 }
 
@@ -83,7 +83,7 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "f2l",
+            "Specification-Title": "flesh2leather",
             "Specification-Vendor": "codenamerevy",
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,

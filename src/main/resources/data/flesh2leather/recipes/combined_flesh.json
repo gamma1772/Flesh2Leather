@@ -1,13 +1,9 @@
 {
-  "conditions": [
-    {
-      "type": "f2l:items",
-      "object": "ez_cfg"
-    }
-  ],
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "F"
+    "F F",
+    " F ",
+    "F F"
   ],
   "key": {
     "F": {
@@ -15,6 +11,7 @@
     }
   },
   "result": {
-    "item": "minecraft:leather"
+    "item": "flesh2leather:combined_flesh",
+    "count": 1
   }
 }

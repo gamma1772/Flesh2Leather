@@ -2,6 +2,6 @@
   "parent": "item/generated",
   "textures":
   {
-    "layer0": "f2l:items/hardened_flesh"
+    "layer0": "flesh2leather:items/combined_flesh"
   }
 }
