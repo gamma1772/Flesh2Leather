@@ -1,32 +1,29 @@
 package com.codenamerevy.flesh2leather;
 
-import com.codenamerevy.flesh2leather.config.CommonConfig;
-import com.codenamerevy.flesh2leather.util.Reference;
-import com.codenamerevy.flesh2leather.util.handler.EventHandler;
-import com.codenamerevy.flesh2leather.util.handler.RegistryHandler;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
-@Mod(Reference.MODID)
+@Mod("flesh2leather")
 public class Flesh2Leather
 {
+    private static final String MODID = "flesh2leather";
+
+    private static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, MODID);
+    private static final RegistryObject<Item> COMBINED_FLESH = ITEMS.register("combined_flesh", () -> new Item(new Item.Properties().group(ItemGroup.MATERIALS)));
+
     public Flesh2Leather()
     {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        MinecraftForge.EVENT_BUS.addListener(RegistryHandler::onItemRegistry);
-        MinecraftForge.EVENT_BUS.addListener(EventHandler::registerRecipeSerializers);
+        ITEMS.register(modEventBus);
+
         MinecraftForge.EVENT_BUS.register(this);
-
-        CommonConfig.loadConfig(CommonConfig.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve("f2l-common.toml"));
-    }
-    private void setup (final FMLCommonSetupEvent event)
-    {
-        MinecraftForge.EVENT_BUS.register(new RegistryHandler());
-        MinecraftForge.EVENT_BUS.register(new EventHandler());
-        Reference.LOGGER.info(Reference.MODNAME + " with ID " + Reference.MODID + " started FMLCommonSetup event.");
     }
 }

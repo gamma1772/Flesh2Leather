@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "flesh2leather:combined_flesh"
+  },
+  "result": "minecraft:leather",
+  "experience": 0.1,
+  "cookingtime": 100
+}
