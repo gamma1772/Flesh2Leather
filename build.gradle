@@ -1,10 +1,10 @@
 buildscript {
     repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
+        maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: project.fg_version, changing: true
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
@@ -13,15 +13,15 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.0.2'
-group = 'com.codenamerevy.flesh2leather'
-archivesBaseName = 'flesh2leather'
+version = project.mod_version
+group = project.maven_group
+archivesBaseName = project.mc_version + '-' + project.mod_name
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(JavaVersion.VERSION_16 as String)
+java.toolchain.languageVersion = JavaLanguageVersion.of(project.java_version)
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 minecraft {
-    mappings channel: 'snapshot', version: '20210309-1.16.5'
+    mappings channel: project.mappings_channel, version: project.mappings_version
     runs {
         client {
             workingDirectory project.file('run')
@@ -78,7 +78,7 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.1.32'
+    minecraft "net.minecraftforge:forge:${project.mc_version}-${project.forge_version}"
 
 }
 
@@ -86,12 +86,12 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "flesh2leather",
-            "Specification-Vendor": "codenamerevy",
-            "Specification-Version": "1", // We are version 1 of ourselves
-            "Implementation-Title": project.name,
+            "Specification-Title": project.mod_name,
+            "Specification-Vendor": "Flesh2Leather",
+            "Specification-Version": "${project.mod_version}", // We are version 1 of ourselves
+            "Implementation-Title": project.mod_name,
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"codenamerevy",
+            "Implementation-Vendor" :"AdditionalBars",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
